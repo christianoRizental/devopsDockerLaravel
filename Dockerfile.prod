@@ -17,9 +17,10 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
 WORKDIR /var/www
 RUN rm -rf /var/www/html
 RUN ln -s public html
-COPY /laravel /var/www
 
-#RUN composer install \
+COPY . /var/www
+
+RUN composer install \
             && php artisan key:generate \
             && php artisan cache:clear \
             && chmod -R 775 storage
