@@ -5,14 +5,14 @@ services:
     app:
         build: .
         container_name: app
-        entrypoint: dockerize -template ./.docker/app/.env:.env -template ./.docker/nginx/nginx.conf:./.docker/nginx/nginx.conf -wait tcp://db:3306 -timeout 40s ./.docker/entrypoint.sh
-        environment:
-            - DB_HOST=db
-            - DB_DATABASE=laravel
-            - DB_USERNAME=root
-            - DB_PASSWORD=root
-            - NGINX_HOST=db
-            - NGINX_PORT=9000
+        #entrypoint: dockerize -template ./.docker/app/.env:.env -template ./.docker/nginx/nginx.conf:./.docker/nginx/nginx.conf -wait tcp://db:3306 -timeout 40s ./.docker/entrypoint.sh
+        #environment:
+        #    - DB_HOST=db
+        #    - DB_DATABASE=laravel
+        #    - DB_USERNAME=root
+        #    - DB_PASSWORD=root
+        #    - NGINX_HOST=db
+        #    - NGINX_PORT=9000
         volumes:
             #- .:/var/www
             # usando Docker Toolbox só funcionou com o nome do volume com / na frente, no caso é /laravel
